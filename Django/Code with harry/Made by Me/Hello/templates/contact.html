@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock title%}
+
+{% block body %}
+<h1> Contact Page </h1>
+<h3>Contact Us!</h3>
+
+<form method="POST" action="/contact">
+{% comment %} We need to use csrf_token inside the form to accpet the 
+values from the website {% endcomment %}
+{% csrf_token %}
+
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+{% endblock body %}
+
